@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { FormsModule } from '@angular/forms';
+import { ListUsersComponent } from './components/list-users/list-users.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+import { AppRouterModule } from './app-router.module';
 
 const config: SocketIoConfig = {
   url: environment.ws, options: {}
@@ -16,12 +20,16 @@ const config: SocketIoConfig = {
   declarations: [
     AppComponent,
     FooterComponent,
-    ChatComponent
+    ChatComponent,
+    ListUsersComponent,
+    LoginComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    AppRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

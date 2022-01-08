@@ -10,7 +10,7 @@ export class ChatService {
 
   sendMessage(message: string) {
     const payload = {
-      from: 'Luis',
+      from: this.wsService.getUser()?.name,
       body: message,
     };
 
@@ -19,5 +19,9 @@ export class ChatService {
 
   getMessages(): Observable<unknown> {
     return this.wsService.listen('NEW_MESSAGE');
+  }
+
+  getDirectMessages() {
+    return this.wsService.listen('DIRECT_MESSAGES');
   }
 }
