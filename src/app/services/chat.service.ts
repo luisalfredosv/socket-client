@@ -24,4 +24,12 @@ export class ChatService {
   getDirectMessages() {
     return this.wsService.listen('DIRECT_MESSAGES');
   }
+
+  getUsersActives(){
+    return this.wsService.listen('USERS_ACTIVES');
+  }
+
+  emitUsersActive(){
+    this.wsService.emit('GET_USERS');
+  }
 }
